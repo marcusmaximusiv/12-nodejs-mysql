@@ -34,9 +34,15 @@ function start() {
       }).then(function (answers) {
         if (answers.units != 0) {
           console.log("We have the item in stock!")
+          //connection query 
+          connection.query('SELECT item_id, product_name, price, stock_quantity FROM products', function (error, res) {
+            if (error) throw error;
+            console.log(res);
+          });
         }
         else {
           console.log("Item is not in stock! Insufficient Quantity")
+          //connection query 
         }
       });
     });
