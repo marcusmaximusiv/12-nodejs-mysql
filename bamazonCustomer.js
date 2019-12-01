@@ -14,9 +14,9 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('SELECT * FROM products', function (error, results, fields) {
+connection.query('SELECT item_id, product_name, price, stock_quantity FROM products', function (error, res) {
   if (error) throw error;
-  console.log('The solution is: ', results[0].solution);
+  console.log(res);
   start()
 });
 
